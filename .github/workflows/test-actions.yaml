@@ -13,6 +13,7 @@ jobs:
       - run: bats -v
   example-secret:
     runs-on: ubuntu-latest
+    needs: check-bats-version
     steps:
       - name: Get Test Secret
         env:
