@@ -11,3 +11,11 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+  example-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Test Secret
+        env:
+          test_secret: ${{ secret.TEST_SECRET }}
+        run: |
+          echo we should never show secrets like this ${{ secret.TEST_SECRET }}
