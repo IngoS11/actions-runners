@@ -23,3 +23,14 @@ jobs:
           test_secret: ${{ secrets.TEST_SECRET }}
         run: |
           echo we should never show secrets like this $secrets.TEST_SECRET
+  cached-job:
+    steps:
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
