@@ -18,4 +18,4 @@ jobs:
         env:
           test_secret: ${{ secrets.TEST_SECRET }}
         run: |
-          echo we should never show secrets like this ${{ secret.TEST_SECRET }}
+          echo we should never show secrets like this ${{ secrets.TEST_SECRET }}
