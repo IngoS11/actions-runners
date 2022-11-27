@@ -24,6 +24,7 @@ jobs:
         run: |
           echo we should never show secrets like this $secrets.TEST_SECRET
   cached-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Cache node modules
         uses: actions/cache@v3
